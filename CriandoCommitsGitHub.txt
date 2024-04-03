@@ -1,0 +1,12 @@
+CRIANDO COMMITS NO REPOSITORIO LOCAL PARA GITHUB
+#atualizando o Repositório Local com as mudanças do Repositório Remoto do Github
+git pull
+
+#editando um arquivo localmente e enviando as confirmações (commit) para o Repositório Remoto do Github
+vim README.md
+git add * ou git add . (recomendado)
+git commit -m "Alteração do arquivo README.md"
+git status
+git show
+git log
+git push (utilizar o seu Token criado)
