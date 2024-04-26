@@ -1,13 +1,13 @@
-nome = input("Insira seu nome: ")
+nome = input("Para começar Insira seu nome: ")
 def Chatbot(N): #Inicio do programa
-    print(f"Ola {N}, aqui é o ChatBot de Assistência da IATech,Em que posso ser Util?")
-    print("Por Favor,Insira o Número Correspondente ao seu Problema")
+    print(f"Ola {N}, aqui é o ChatBot de Assistência da 'IATech',Em que posso ser Util?\n")
+    print("Por Favor,Insira o Número Correspondente ao seu Problema:")
 
     #Respostas
     O1 = "Acionar a Garantia de Algum produto" 
-    O2 = "Problemas com PC"
-    O3 = "Problmas com Pagamento"
-    O4 = "Outro Problema"
+    O2 = "Rastrear Produto"
+    O3 = "Problemas com Pagamento"
+    O4 = "Outro(s)"
 
     #Printando Opções Na Tela
     print(f"1 - {O1}\n"
@@ -15,64 +15,120 @@ def Chatbot(N): #Inicio do programa
         f"3 - {O3}\n"
         f"4 - {O4}\n")
 
+    resposta = int(input("Escolher Número: ")) #Entrada da Resposta Inicial do Usuário
     #Opções Robotizadas do programa para seleção
     def Opcoes(R): 
-        #SESSAO AUTOMATIZADA
-        selecao = "Você Selecionou a Opção"
-        num = "Insira o Número Correspondente ao seu Problema"
+        #variaveis de resposta
         manuntencao = (f"Desculpe essa Linha do Serviço esta com Sobrecarga ou em Manuntenção, Porfavor Tente novamente mais tarde")
-
+        tryagain = ("Alguma Coisa está errada,Porfavor Tente dnv")
         #Sessão de Seleção
 
         #Conversa 1
-        if R == 1:
-            print(selecao,f"'{O1}',Correto?")
-            R2 = input("Confirme (S/N):")
-            if R2 == "S" or "Sim":
-                print("")
+        if (R == 1):
+            print(f"Você Selecionou a Opção,'{O1}',Correto?")
+            R2 = input("Confirme (S/N): ")
+            if (R2 == "Sim" or "S" or "s"):
+                print("Certo, Informe o Produto e Código de Serie Para Continuar o Procedimento")
+                R3_Prod = input("Nome do Produto: ")
+                R3_Cod = input("Código de Serie: ")
+                if R3_Cod != (int or None) and R3_Prod != (int or None): #Se as respostas não forem numeros ou 'vazio'
+                    print(f"O Produto Informado é: {R3_Prod}, e O Código do Produto: {R3_Cod}, Certo?")
+                    R4=input("Confirme (S/N):")
+                    if (R4 == "Sim" or "S" or"s"):
+                        print("Certo, Agora gostariamos que descrevesse brevemento o problema ocorrido para nossa equipe avaliar a situação.")
+                        R5 = input("Insira o problema: ")
+                        if R5 != (int or None):
+                            print(f"Certo {N}, Nossa equipe analisara o seu caso conforme as Informações passadas, Informe seu email para retorno")
+                            r_email = input("Infome seu Email: ")
+                            if r_email != (int or None):
+                                print("Tudo pronto agradecemos a paciência, retornaremos o contato")
+                            else:
+                                print("Email Invalido,Tente Novamente")
+                                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                                resposta = int(input("Escolher Número: "))
+                                Opcoes(resposta)
+                        else:
+                            print(tryagain)
+                            print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                            resposta = int(input("Escolher Número: "))
+                            Opcoes(resposta)
+                    else:
+                        print(tryagain)
+                        print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                        resposta = int(input("Escolher Número: "))
+                        Opcoes(resposta)
+                else: 
+                    print(tryagain)
+                    print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                    resposta = int(input("Escolher Número: "))
+                    Opcoes(resposta)
             else:
-                print(f"Porfavor,Tente dnv\n {num}")
-                resposta = input("")
+                print(tryagain)
+                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
                 
       #Conversa 2
-        elif R == 2:
-            print(selecao,f"'{O2}',Correto?")
-            R2 = input("Confirme (S/N):")
-            if R2 == "S" or "Sim":
-                print(manuntencao)
+        elif (R == 2):
+            print(f"Você Selecionou a Opção,'{O2}',Correto?")
+            R2 = input("Confirme (S/N): ")
+            if (R2 == "Sim" or "S" or "s"):
+                print("Certo, Informe seu CPF e Código de Rastreio")
+                R3_cpf = int(input("Informe CPF: "))
+                R3_codR = input("Informe Código de Rastreamento: ")
+                if  (R3_cpf == None):
+                    print("CPF Invalido,Porfavor Tente dnv")
+                    print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                    resposta = int(input("Escolher Número: "))
+                    Opcoes(resposta)
+                if (R3_codR == int) or (R3_codR == None):
+                    print(tryagain)
+                    print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                    resposta = int(input("Escolher Número: "))
+                    Opcoes(resposta)
+                else:
+                    print(f"Seu CPF é: {R3_Prod}, e O Código de Rastreio: {R3_codR}, Certo?")
+                    R4=input("Confirme (S/N):")
+                    if (R4 == "Sim" or "S" or"s"):
+                        print(f"Certo Seu pedido {R3_codR}, Saio da Afilial da IATech\n"
+                              "Trafégo - Curitiba")
+                    else:
+                        print("Porfavor Tente De novo")
+                        print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                    resposta = int(input("Escolher Número: "))
+                    Opcoes(resposta)
             else:
-                print(f"Porfavor,Tente dnv\n {num}")
-                resposta = input()
+                print(tryagain)
+                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
         
         #Conversa 3
         elif R == 3:
-            print(selecao,f"'{O3}',Correto?")
-            R2 = input("Confirme (S/N):")
-            if R2 == "S" or "Sim":
+            print(f"Você Selecionou a Opção,'{O3}',Correto?")
+            R2 = input("Confirme (S/N): ")
+            if (R2 == "Sim" or "S" or "s"):
                 print(manuntencao)
             else:
-                print(f"Porfavor,Tente dnv\n {num}")
-                resposta = input()
+                print(tryagain)
+                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
         
         #Conversa 4
         elif R == 4:
-            print(selecao,f"'{O4}',Correto?")
-            R2 = input("Confirme (S/N):")
-            if R2 == "S" or "Sim":
+            print(f"Você Selecionou a Opção,'{O4}',Correto?")
+            R2 = input("Confirme (S/N): ")
+            if (R2 == "Sim" or "S" or "s"):
                 print(manuntencao)
             else:
-                print(f"Porfavor,Tente dnv\n {num}")
-                resposta = input()
+                print(tryagain)
+                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
         else:
-            print(f"Sinto Muito {N}, Não Compreendi Porfavor Tente De novo")
-            resposta = input()
+            print(f"Sinto Muito {N} Não Compreendi, Porfavor Tente De novo")
+            resposta = int(input("Escolher Número: "))
             Opcoes(resposta)
-        
-
-    resposta = int(input("Insir Número: ")) #Entrada da Resposta Inicial do Usuário
     Opcoes(resposta)
 Chatbot(nome)
