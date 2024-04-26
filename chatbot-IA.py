@@ -39,8 +39,8 @@ def Chatbot(N): #Inicio do programa
                         R5 = input("Insira o problema: ")
                         if (R5 != ""):
                             print(f"Certo {N}, Nossa equipe analisara o seu caso conforme as Informações passadas, Informe seu email para retorno")
-                            r_email = input("Infome seu Email: ")
-                            if not isinstance(r_email,int) or (r_email is not None):
+                            r_email = str(input("Infome seu Email: "))
+                            if (r_email != ""):
                                 print("Tudo pronto agradecemos a paciência, retornaremos o contato")
                             else:
                                 print("Email Invalido,Tente Novamente")
@@ -80,7 +80,7 @@ def Chatbot(N): #Inicio do programa
                     print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                     resposta = int(input("Escolher Número: "))
                     Opcoes(resposta)
-                if (R3_codR == ""):
+                elif (R3_codR == ""):
                     print(tryagain)
                     print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                     resposta = int(input("Escolher Número: "))
