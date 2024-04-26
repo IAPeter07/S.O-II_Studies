@@ -27,20 +27,20 @@ def Chatbot(N): #Inicio do programa
         if (R == 1):
             print(f"Você Selecionou a Opção,'{O1}',Correto?")
             R2 = input("Confirme (S/N): ")
-            if (R2 == "Sim" or "S" or "s"):
+            if (R2 == "Sim") or (R2 =="S") or (R2 =="s"):
                 print("Certo, Informe o Produto e Código de Serie Para Continuar o Procedimento")
-                R3_Prod = input("Nome do Produto: ")
-                R3_Cod = input("Código de Serie: ")
-                if R3_Cod != (int or None) and R3_Prod != (int or None): #Se as respostas não forem numeros ou 'vazio'
+                R3_Prod = str(input("Nome do Produto: "))
+                R3_Cod = str(input("Código de Serie: "))
+                if (R3_Prod and R3_Cod != ""): #Se as respostas não forem'vazio'
                     print(f"O Produto Informado é: {R3_Prod}, e O Código do Produto: {R3_Cod}, Certo?")
-                    R4=input("Confirme (S/N):")
-                    if (R4 == "Sim" or "S" or"s"):
+                    R4=input("Confirme (S/N): ")
+                    if (R4 == "Sim") or (R4 =="S") or (R4 =="s"):
                         print("Certo, Agora gostariamos que descrevesse brevemento o problema ocorrido para nossa equipe avaliar a situação.")
                         R5 = input("Insira o problema: ")
-                        if R5 != (int or None):
+                        if (R5 != ""):
                             print(f"Certo {N}, Nossa equipe analisara o seu caso conforme as Informações passadas, Informe seu email para retorno")
                             r_email = input("Infome seu Email: ")
-                            if r_email != (int or None):
+                            if not isinstance(r_email,int) or (r_email is not None):
                                 print("Tudo pronto agradecemos a paciência, retornaremos o contato")
                             else:
                                 print("Email Invalido,Tente Novamente")
@@ -63,7 +63,6 @@ def Chatbot(N): #Inicio do programa
                     resposta = int(input("Escolher Número: "))
                     Opcoes(resposta)
             else:
-                print(tryagain)
                 print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                 resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
@@ -72,16 +71,16 @@ def Chatbot(N): #Inicio do programa
         elif (R == 2):
             print(f"Você Selecionou a Opção,'{O2}',Correto?")
             R2 = input("Confirme (S/N): ")
-            if (R2 == "Sim" or "S" or "s"):
+            if(R2 == "Sim") or (R2 =="S") or (R2 =="s"):
                 print("Certo, Informe seu CPF e Código de Rastreio")
                 R3_cpf = int(input("Informe CPF: "))
-                R3_codR = input("Informe Código de Rastreamento: ")
-                if  (R3_cpf == None):
+                R3_codR = str(input("Informe Código de Rastreamento: "))
+                if  (R3_cpf == ""):
                     print("CPF Invalido,Porfavor Tente dnv")
                     print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                     resposta = int(input("Escolher Número: "))
                     Opcoes(resposta)
-                if (R3_codR == int) or (R3_codR == None):
+                if (R3_codR == ""):
                     print(tryagain)
                     print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                     resposta = int(input("Escolher Número: "))
@@ -89,7 +88,7 @@ def Chatbot(N): #Inicio do programa
                 else:
                     print(f"Seu CPF é: {R3_Prod}, e O Código de Rastreio: {R3_codR}, Certo?")
                     R4=input("Confirme (S/N):")
-                    if (R4 == "Sim" or "S" or"s"):
+                    if (R2 == "Sim") or (R2 =="S") or (R2 =="s"):
                         print(f"Certo Seu pedido {R3_codR}, Saio da Afilial da IATech\n"
                               "Trafégo - Curitiba")
                     else:
@@ -98,7 +97,6 @@ def Chatbot(N): #Inicio do programa
                     resposta = int(input("Escolher Número: "))
                     Opcoes(resposta)
             else:
-                print(tryagain)
                 print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                 resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
@@ -107,10 +105,12 @@ def Chatbot(N): #Inicio do programa
         elif R == 3:
             print(f"Você Selecionou a Opção,'{O3}',Correto?")
             R2 = input("Confirme (S/N): ")
-            if (R2 == "Sim" or "S" or "s"):
+            if(R2 == "Sim") or (R2 =="S") or (R2 =="s"):
                 print(manuntencao)
+                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                resposta = int(input("Escolher Número: "))
+                Opcoes(resposta)
             else:
-                print(tryagain)
                 print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                 resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
@@ -119,10 +119,12 @@ def Chatbot(N): #Inicio do programa
         elif R == 4:
             print(f"Você Selecionou a Opção,'{O4}',Correto?")
             R2 = input("Confirme (S/N): ")
-            if (R2 == "Sim" or "S" or "s"):
+            if(R2 == "Sim") or (R2 =="S") or (R2 =="s"):
                 print(manuntencao)
+                print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
+                resposta = int(input("Escolher Número: "))
+                Opcoes(resposta)
             else:
-                print(tryagain)
                 print(f"1 - {O1}\n2 - {O2}\n3 - {O3}\n4 - {O4}\n")
                 resposta = int(input("Escolher Número: "))
                 Opcoes(resposta)
